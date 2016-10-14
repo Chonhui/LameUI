@@ -1,0 +1,56 @@
+//grid system
+.make-grid-columns(@base) {
+  // Common styles for all sizes of grid columns, widths 1-12
+  .col(@span) { // initial
+    @item: ~".col-@{span}-@{base}";
+    .col((@span + 1), @item);
+  }
+  .col(@span, @list) when (@span =< @base) { // general; "=<" isn't a typo
+    @item: ~".col-@{span}-@{base}";
+    .col((@span + 1), ~"@{list}, @{item}");
+  }
+  .col(@span, @list) when (@span > @base) { // terminal
+    @{list} {
+      position: relative;
+      display: block;
+      float: left;
+      box-sizing: border-box;
+      // Prevent columns from collapsing when empty
+      min-height: 1px;
+      // Inner gutter via padding
+      //padding-left:  1px;
+      //padding-right: 1px;
+    }
+  }
+  .col(1); // kickstart it
+}
+.mk-grid(@base){
+	.col(@span) when (@span < @base){
+		.col-@{span}-@{base}{
+			width: percentage(@span / @base);
+		}
+		.col(@span + 1);
+	}
+	.col(@span) when (@span >= @base){
+		.col-@{span}-@{base}{
+			width:100%;
+		}
+	}
+	.col(1);
+	.make-grid-columns(@base);
+}
+
+.row{
+  position: relative;
+  width: 100%;
+  padding:0;
+  margin:0 0 (@font-size / 2) 0;
+  &:extend(.clearfix all);
+  .mk-grid(12);
+}
+
+.row-sep{
+  height:0;
+  border-bottom: 1px dashed mix(@light, @main-clr, 80%);
+  margin:0 0 (@font-size / 2) 0;
+}

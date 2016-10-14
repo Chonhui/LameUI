@@ -1,0 +1,77 @@
+@font-family: 'Microsoft Yahei';
+body{
+	margin:0;
+	padding:0;
+	font-family: @font-family;
+	font-size: @font-size;
+	line-height: @ln-height;
+	background: @bg-clr;
+}
+
+textarea, input, select{
+	font-family: @font-family;
+}
+
+iframe{
+	border: 0;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.clearfix{
+	&:before, &:after{
+		clear: both;
+		content: '';
+		display: table;
+	}
+}
+.lf{
+	float:left;
+}
+.rt{
+	float:right;
+}
+.fill{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+.relative{
+	position: relative;
+}
+
+.img-centered(){
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	img{
+		vertical-align: middle;
+	}
+}
+
+
+.inline-block-size(@font-size, @inner-height, @height, @border-width:0){
+	font-size: @font-size;
+	line-height: @inner-height;
+	padding: ((@height - @inner-height) / 2 - @border-width) ceil(@font-size * 0.6 - @border-width);
+}
+
+.iln-blk(@font-size, @inner-height, @height, @border-width:0){
+	box-sizing:  border-box;
+	text-align: center;
+	font-size: @font-size;
+	line-height: @inner-height;
+	padding: ((@height - @inner-height) / 2 - @border-width) ceil(@font-size * 0.2 - @border-width);
+}
+.iln-blk{
+	.iln-blk(@font-size, @ln-height, @blk-size);
+}
+.iln-blk-sm{
+	.iln-blk(@font-size-sm, @ln-height-sm, @blk-size-sm);
+}
+.iln-blk-lg{
+	.iln-blk(@font-size-lg, @ln-height-lg, @blk-size-lg);
+}

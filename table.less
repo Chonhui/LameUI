@@ -1,0 +1,206 @@
+@tbl-hdr-clr: darken(#fff, 2%);
+@tbl-hdr-brd-clr: @light-grey;
+@tbl-bdy-brd-clr: darken(@light,10%);
+.striped{
+	tr:nth-child(2n), tr.even{
+		background: darken(@bg-clr, 3%);
+	}
+	tr:nth-child(2n-1), tr.odd{
+		// background: @bg-clr;
+		background: #fff;
+	}
+}
+.tbl{
+	table, table&{
+		width: 100%;
+		border-collapse: collapse;
+	}
+
+	&.hover tr{
+		&:hover, &._hvr{
+			background: darken(@bg-clr, 10%);
+			&.checked{
+				background: darken(@bg-clr, 22%);
+			}
+		}
+	}
+	&.nowrap td > div{white-space: nowrap;}
+
+	tr{
+		&.alert, &.clr-ylw{
+			background: lighten(@yellow, 32%);
+			color:darken(@yellow,22%);
+		}
+		&.error &.clr-red{
+			background: lighten(@red, 42%);
+			color:darken(@red,12%);
+		}
+		&.success &.clr-grn{
+			background: lighten(@green, 42%);
+			color:darken(@green,12%);
+		}
+		&.question &.clr-blu{
+			background: lighten(@blue, 42%);
+			color:darken(@blue,12%);
+		}
+		&.info &.clr-cyn{
+			background: lighten(@cyan, 32%);
+			color:darken(@cyan,12%);
+		}
+		&.checked, &:checked{
+			background: darken(@bg-clr, 30%);
+		}
+	}
+
+	td, th{
+		>div{
+			padding:@blk-padding-v/2 floor(@font-size / 4);
+			overflow: hidden;
+			cursor: default;
+			box-sizing: border-box;
+			font-size: @font-size;
+			line-height: @ln-height;
+			&.c{text-align: center;}
+			&.l{text-align: left;}
+			&.r{text-align: right}
+		}
+		padding: 0;
+		margin: 0;
+		&:last-child{
+			border-right:0;
+		}
+	}
+	td{
+		border-color: @tbl-bdy-brd-clr;
+		border-style: dotted;
+		border-width: 0 1px 1px 0;
+	}
+	th{
+		border-color: @tbl-hdr-brd-clr;
+		border-style: solid dotted solid dotted;
+		border-width: 1px 1px 1px 0;
+		boder-left: 0;
+		background: @tbl-hdr-clr;
+		font-weight: normal;
+	}
+	&.sz-lg{
+		td, th{>div{
+			padding:@blk-padding-v-lg/2 floor(@font-size-lg / 4);
+			font-size: @font-size-lg;
+			line-height: @ln-height-lg;
+		}}
+	}
+	&.sz-sm{
+		td, th{>div{
+			padding:@blk-padding-v-sm/2 floor(@font-size-sm / 4);
+			font-size: @font-size-sm;
+			line-height: @ln-height-sm;
+		}}
+	}
+}
+
+.grd-wrp{
+	position: relative;
+	overflow: hidden;
+	background: @tbl-hdr-clr;
+	div{
+		overflow: hidden;
+	}
+	.tbl{
+		tbody{border-right: 1px dotted @tbl-bdy-brd-clr;}
+		thead{border-right: 1px dotted @tbl-hdr-brd-clr;}
+	}
+	.grd-row-num{
+		background: @light;
+		text-align: center;
+	}
+	.grd-chk{
+		text-align: center;
+		input{
+			width: floor(@font-size * 1.2);
+			height: floor(@font-size * 1.2);
+		}
+	}
+	.grd-zn1, .grd-zn2{
+		position: absolute;
+		top: 0;
+		bottom: @blk-size;
+		.no-pgr &{
+			bottom: 0;
+		}
+		.grd-tbl-hdr{
+			background: @tbl-hdr-clr;
+			th{
+				border-top:0;
+				border-bottom:0;
+				.sort-asc, .sort-desc{
+					display: inline-block;
+					height: 0;
+					box-sizing: content-box;
+					border-style: solid;
+					border-color: @dark transparent transparent transparent;
+					border-width: @font-size/2 @font-size/2 0 @font-size/2;
+				}
+				.sort-asc{
+					border-color: transparent transparent @dark transparent;
+					border-width: 0 @font-size/2 @font-size/2 @font-size/2;
+				}
+
+				&[data-grd-sort-name], &[data-grd-sort-name] *{
+					cursor: pointer;
+				}
+				&[data-grd-sort-name]:hover, &[data-grd-sort-name]._hvr{
+					background: darken(@tbl-hdr-clr, 8%);
+				}
+			}
+			border-top: 1px solid @tbl-bdy-brd-clr;
+			border-bottom: 2px solid @tbl-bdy-brd-clr;
+
+		}
+	}
+	.grd-zn1{
+		left: 0;
+		.grd-tbl-bdy, .grd-tbl-bdy > div, .grd-tbl-bdy > table{
+			position: relative;
+		}
+	}
+	.grd-zn2{
+		right: 0;
+		.grd-tbl-hdr, .grd-tbl-hdr > div, .grd-tbl-hdr > table{
+			position: relative;
+		}
+		.grd-tbl-bdy{
+			overflow: auto;
+		}
+	}
+	.grd-pgr{
+		height: @blk-size;
+		position:absolute;
+		bottom:0;
+		left: 0;
+		right: 0;
+		background: @tbl-hdr-clr;
+		border-top:1px solid @tbl-bdy-brd-clr;
+		border-bottom: 1px solid @tbl-bdy-brd-clr;
+
+		.grd-fst:before{content:'\e610';}
+		.grd-lst:before{content:'\e613';}
+		.grd-pre:before{content:'\e611';}
+		.grd-nxt:before{content:'\e612';}
+
+		.grd-fst, .grd-lst, .grd-pre, .grd-nxt{
+			display: inline-block;
+			font-size: @font-size;
+			line-height: @ln-height;
+			padding:@blk-padding-v;
+			width: @blk-size - @blk-padding-h * 2;
+			text-align: center;
+		}
+
+		.infos{
+			.inline-block-size(@font-size, @ln-height, @blk-size);
+		}
+
+	}
+
+}
