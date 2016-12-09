@@ -1,0 +1,62 @@
+.lf{
+	float:left;
+}
+.rt{
+	float:right;
+}
+
+.txt-l{text-align: left;}
+.txt-r{text-align: right;}
+
+.sup{vertical-align: super!important;}
+.sub{vertical-align: sub!important;}
+
+.fill{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+.relative{
+	position: relative;
+}
+
+.show{display: block!important;}
+.hide{display: none!important;}
+
+.font-md{
+	font-size: @font-size;
+	line-height: @ln-height;
+}
+.font-lg{
+	font-size: @font-size-lg;
+	line-height: @ln-height-lg;
+}
+.font-sm{
+	font-size: @font-size-sm;
+	line-height: @ln-height-sm;
+}
+
+
+
+
+.i-dp-arrow{
+	display: inline-block;
+	border-style: solid;
+	border-color: @dark transparent transparent;
+	vertical-align: middle;
+	margin-left: floor(@font-size / 4);
+
+	&, .sz-md>&, &.sz-md{
+		border-width: ceil(@font-size / 3)  ceil(@font-size / 4) (ceil(@font-size / 4)*2-ceil(@font-size / 3));
+	}
+	.sz-lg>&, &.sz-lg{
+		border-width: ceil(@font-size-lg / 3)  ceil(@font-size-lg / 4) (ceil(@font-size-lg / 4)*2 - ceil(@font-size-lg / 3));
+	}
+	.sz-sm>&, &.sz-sm{
+		border-width: ceil(@font-size-sm / 3)  ceil(@font-size-sm / 4) (ceil(@font-size-sm / 4)*2 - ceil(@font-size-sm / 3));
+	}
+
+
+}

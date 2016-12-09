@@ -1,0 +1,99 @@
+.btn-sz(@size, @inner-height, @height, @border-width:0){
+	.inline-block-size(@size, @inner-height, @height, @border-width);
+}
+
+.btn-ico-size(@size, @inner-height){
+	>.ico-lf{margin:0 floor(@size / 4) 0 0;}
+	>.ico-rt{margin:0 0 0 floor(@size / 4);}
+	// >.ico-top, >.ico-btm{display:block; margin: 0 auto;}
+	// >.ico-lf, >.ico-rt, >.ico-top, >.ico-btm{
+	// 	height: @inner-height;
+	// 	width: @inner-height;
+	// 	line-height: @inner-height;
+	// 	vertical-align: bottom;
+	// }
+
+}
+
+.btn, .link-btn{
+	display: inline-block;
+	margin-bottom: 0;
+	font-weight: normal;
+	text-align: center;
+	vertical-align: middle;
+	touch-action: manipulation;
+	cursor: pointer;
+	background-image: none;
+	white-space: nowrap;
+	text-decoration: none;
+	//outline:0;
+	//background: transparent;
+	//&:focus{outline: 1px solid @main-clr;}
+	border-radius: 2px;
+}
+.btn{
+	color:@main-clr;
+	border: none;
+
+	&, &.sz-md{
+		.btn-sz(@font-size, @ln-height, @blk-size);
+		.btn-ico-size(@font-size, @ln-height);
+	}
+	&.sz-lg{
+		.btn-sz(@font-size-lg, @ln-height-lg, @blk-size-lg);
+		.btn-ico-size(@font-size-lg, @ln-height-lg);
+	}
+	&.sz-sm{
+		.btn-sz(@font-size-sm, @ln-height-sm, @blk-size-sm);
+		.btn-ico-size(@font-size-sm, @ln-height-sm);
+	}
+
+	>.ico-top, >.ico-btm{display:block; margin: 0 auto;}
+	>.ico-lf, >.ico-rt, >.ico-top, >.ico-btm{
+		vertical-align: bottom;
+	}
+
+	&:hover, &._hvr{
+		color:@main-clr;
+		background: darken(@bg-clr, 10%);
+	}
+	&:focus, &._fcs{
+		color:@main-clr;
+	}
+	&:active, &._act{
+		color:@main-clr;
+		background: darken(@bg-clr, 20%);
+	}
+	&:disabled, &._dis{
+		opacity: 0.3;
+		cursor: not-allowed;
+	}
+}
+.brd-btn{
+	border-width: 1px;
+	border-style: solid;
+	&, &.sz-md{
+		.btn-sz(@font-size, @ln-height, @blk-size, 1px);
+	}
+	&.sz-lg{
+		.btn-sz(@font-size-lg, @ln-height-lg, @blk-size-lg, 1px);
+	}
+	&.sz-sm{
+		.btn-sz(@font-size-sm, @ln-height-sm, @blk-size-sm, 1px);
+	}
+}
+.link-btn{
+	color:@main-clr;
+	&:hover, &._hvr, &:focus, &._fcs{
+		color:@main-clr;
+		color:lighten(@main-clr, 8%);
+		text-decoration: underline;
+	}
+	&:focus, &._fcs{
+		color: @main-clr;
+		box-shadow: 0 0 3px @main-clr;
+	}
+	&:active, &._act{
+		color: darken(@main-clr, 16%);
+	}
+}

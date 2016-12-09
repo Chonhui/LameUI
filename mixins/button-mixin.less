@@ -1,0 +1,127 @@
+.btn-plain-clr-static(@clr){
+	color: darken(@clr, 10%);
+	background: transparent;
+}
+.btn-plain-clr-active(@clr){
+	&:hover, &._hvr, &:focus, &._fcs{
+		color: darken(@clr, 10%);
+		background: lighten(@clr, 40%);
+	}
+	&:active, &._act{
+		color: darken(@clr, 10%);
+		background: lighten(@clr, 30%);
+	}
+}
+.btn-plain-clr-static-brd(@clr){
+	color: darken(@clr, 10%);
+	background: transparent;
+	border-color: transparent;
+}
+.btn-plain-clr-active-brd(@clr){
+	&:hover, &._hvr, &:focus, &._fcs{
+		color: darken(@clr, 10%);
+		background: lighten(@clr, 40%);
+		border-color: lighten(@clr, 40%);
+	}
+	&:active, &._act{
+		color: darken(@clr, 10%);
+		background: lighten(@clr, 30%);
+		border-color: lighten(@clr, 30%);
+	}
+}
+.btn-bordered-clr-staic(@clr){
+	color: darken(@clr, 10%);
+	border-color: fade(darken(@clr, 10%), 20%);
+	background: fade(darken(@clr, 10%), 4%);
+}
+.btn-bordered-clr-active(@clr){
+	&:hover, &._hvr, &:focus, &._fcs{
+		color: darken(@clr, 10%);
+		border-color: darken(mix(@bg-clr, @clr, 60%), 10%);
+		border-color: fade(darken(@clr, 10%), 40%);
+	}
+	&:hover, &._hvr{
+		color: darken(@clr, 10%);
+		background: mix(@bg-clr, @clr, 80%);
+		background: fade(@clr, 20%);
+	}
+	&:active, &._act{
+		color: darken(@clr, 20%);
+		background: darken(mix(@bg-clr, @clr, 80%), 10%);
+		background: fade(darken(@clr, 10%), 25%);
+		border-color: darken(mix(@bg-clr, @clr, 60%), 20%);
+		border-color: fade(darken(@clr, 25%), 40%);
+	}
+}
+.btn-solid-clr-static(@clr){
+	background: @clr;
+	color:#fff;
+}
+.btn-solid-clr-active(@clr){
+	&:hover, &._hvr, &:focus, &._fcs{
+		color:#fff;
+		background: lighten(@clr, 8%);
+	}
+	&:active, &._act{
+		color:#fff;
+		background: darken(@clr, 12%);
+	}
+}
+.btn-solid-clr-active-dim(@clr){
+	&:hover, &._hvr, &:focus, &._fcs{
+		color:#fff;
+		background: @clr;
+	}
+	&:active, &._act{
+		color:#fff;
+		background: darken(@clr, 12%);
+	}
+}
+.btn-solid-clr-static-brd(@clr){
+	background: @clr;
+	border-color: @clr;
+	color:#fff;
+}
+.btn-solid-clr-active-brd(@clr){
+	&:hover, &._hvr, &:focus, &._fcs{
+		color:#fff;
+		background: lighten(@clr, 8%);
+		border-color: lighten(@clr, 8%);
+	}
+	&:active, &._act{
+		color:#fff;
+		background: darken(@clr, 12%);
+		border-color: darken(@clr, 12%);
+	}
+}
+.btn-solid-clr-active-brd-dim(@clr){
+	&:hover, &._hvr, &:focus, &._fcs{
+		color:#fff;
+		background: @clr;
+		border-color: @clr;
+	}
+	&:active, &._act{
+		color:#fff;
+		background: darken(@clr, 12%);
+		border-color: darken(@clr, 12%);
+	}
+}
+.btn-link-clr(@clr){
+	color:@clr;
+	&:hover, &._hvr, &:focus, &._fcs{
+		color:@clr;
+		color:lighten(@clr, 8%);
+		text-decoration: underline;
+	}
+	&:focus, &._fcs{
+		color:@clr;
+		box-shadow: 0 0 3px @clr;
+	}
+	&:active, &._act{
+		color: darken(@clr, 16%);
+	}
+}
+
+.btn-sz(@size, @inner-height, @height, @border-width:0){
+	.inline-block-size(@size, @inner-height, @height, @border-width);
+}

@@ -1,0 +1,37 @@
+.make-btn-clrs(@index){
+	.do-make-btn-clrs(@index) when (@index <= length(@colorNameList)){
+		@clr-nm: extract(@colorNameList,@index);
+		@clr: extract(@colorValueList, @index);
+		.btn.pln-@{clr-nm} {
+			.btn-plain-clr-static(@clr);
+			.btn-plain-clr-active(@clr);
+		}
+		.btn.brd-@{clr-nm} {
+			&:extend(.brd-btn all);
+			.btn-bordered-clr-staic(@clr);
+			.btn-bordered-clr-active(@clr);
+		}
+		.btn.sld-@{clr-nm} {
+			.btn-solid-clr-static(@clr);
+			.btn-solid-clr-active(@clr);
+		}
+		.btn.brd-sld-@{clr-nm} {
+			&:extend(.brd-btn all);
+			.btn-bordered-clr-staic(@clr);
+			.btn-solid-clr-active-brd-dim(@clr);
+		}
+		.btn.pln-brd-@{clr-nm} {
+			&:extend(.brd-btn all);
+			.btn-plain-clr-static-brd(@clr);
+			.btn-bordered-clr-active(@clr);
+		}
+		.btn.pln-sld-@{clr-nm} {
+			.btn-plain-clr-static(@clr);
+			.btn-solid-clr-active-dim(@clr);
+		}
+		.do-make-btn-clrs(@index + 1);
+	}
+	.do-make-btn-clrs(1); // kickstart it
+}
+
+.make-btn-clrs( length(@colorNameList) );
