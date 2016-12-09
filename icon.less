@@ -8,25 +8,27 @@
 
 .ico{
 	display: inline-block;
-	height: @ln-height;
-	width: @ln-height;
-	font-size: @ln-height;
-	line-height: @ln-height;
 	text-decoration: none;
 	text-align: center;
 	font-style:normal;
 	vertical-align: middle;
 
-	&.sz-lg, .sz-lg>&{
+	&, .sz-md>&, &.sz-md{
+		height: @ln-height;
+		width: @ln-height;
+		font-size: @ico-size;
+		line-height: @ln-height;
+	}
+	.sz-lg>&, &.sz-lg{
 		height: @ln-height-lg;
 		width: @ln-height-lg;
-		font-size: @ln-height-lg;
+		font-size: @ico-size-lg;
 		line-height: @ln-height-lg;
 	}
-	&.sz-sm, .sz-sm>&{
+	.sz-sm>&, &.sz-sm{
 		height: @ln-height-sm;
 		width: @ln-height-sm;
-		font-size: @ln-height-sm;
+		font-size: @ico-size-sm;
 		line-height: @ln-height-sm;
 	}
 

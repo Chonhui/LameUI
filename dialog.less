@@ -3,6 +3,19 @@ body.dlg-mdl-dom{
 	overflow: hidden;
 	height: 100%;
 }
+.dlg-btn-clr(@clr){
+	color: darken(@clr, 10%);
+	&:hover, &._hvr, &:focus, &._fcs{
+		color:#fff;
+		background: @clr;
+		border-color: @clr;
+	}
+	&:active, &._act{
+		color:#fff;
+		background: darken(@clr, 12%);
+		border-color: darken(@clr, 12%);
+	}
+}
 .dlg{
 	display: block;
 	background: @bg-clr;
@@ -24,74 +37,109 @@ body.dlg-mdl-dom{
 			cursor: move;
 		}
 		.dlg-ttl{
-			display: inline-block;
+			display: block;
+			float: left;
 			font-size: @font-size;
 			line-height: @ln-height;
-			margin: 0;
+			margin: 0 0 0 (@font-size / 4);
 			padding: ((@blk-size - @ln-height) / 2) floor(@font-size * 0.4);
 			font-weight: bold;
 			color: @dark;
 		}
-		.btns{
+		// .btns{
+		// 	float: left;
+		// 	margin: 0 floor(@font-size / 2);
+		// 	.btn{
+		// 		border-radius: 0;
+		// 	}
+		// }
+		.dlg-win-btns{
 			float: right;
 			margin-right: floor(@font-size / 4);
-		}
-		.btn{
-			text-decoration: none;
-			padding:(@blk-padding-v - 1px) @blk-padding-h (@blk-padding-v - 3px);
-			height: @blk-size - 4px;
-			width: @blk-size *1.5;
-			box-sizing: border-box;
-			color: @dark;
-			font-size: @font-size;
-			&:hover, &:focus{
-				background: darken(@bg-clr, 10%);
-			}
-			&:active{
-				background: darken(@bg-clr, 20%);
-			}
-
-			&.dlg-cls{
-				&:before{content:'x';}
+			.btn{
 				border-top-left-radius: 0;
 				border-top-right-radius: 0;
-				// position: absolute;
-				// top: 50%; left: 50%;
-				// margin-top: 0 - (@ln-height / 2) + 1px;
-				// margin-left: 0 - (@ln-height / 2);
+
+				text-decoration: none;
+				padding:(@blk-padding-v - 1px) @blk-padding-h (@blk-padding-v - 3px);
+				height: @blk-size - 4px;
+				width: @blk-size *1.5;
+				box-sizing: border-box;
+				color: @dark;
+				font-size: @font-size;
 				&:hover, &:focus{
-					background: darken(mix(@bg-clr, @red, 20%), 10%);
-					color:#fff;
+					background: darken(@bg-clr, 10%);
 				}
 				&:active{
-					background: darken(mix(@bg-clr, @red, 0%), 20%);
-					color:#fff;
+					background: darken(@bg-clr, 20%);
 				}
-			}
-			&.dlg-mnz:before{content: '\e606';}
-			&.dlg-nmz:before{content: '\e607';}
-			&.dlg-mxz:before{content: '\e605';}
 
-			position: relative;
+				&.dlg-cls{
+					&:before{content:'x';}
+					&:hover, &:focus{
+						background: darken(mix(@bg-clr, @red, 20%), 10%);
+						color:#fff;
+					}
+					&:active{
+						background: darken(mix(@bg-clr, @red, 0%), 20%);
+						color:#fff;
+					}
+				}
+				&.dlg-mnz:before{content: '\e606';}
+				&.dlg-nmz:before{content: '\e607';}
+				&.dlg-mxz:before{content: '\e605';}
+
+				position: relative;
+
+			}
 		}
 	}
 	.dlg-ftr{
 		padding: floor(@font-size / 4) floor(@font-size / 4) ;
 		.btns{
 			float: right;
-			.btn{
-				background:@light;
-				color:@dark;
-				border: none;
+			.btn, .iln-blk, .inp{
 				margin-left: floor(@font-size / 4);
+				&:first-child{margin-left: 0;}
+			}
+			.btn.dlg-ftr-btn{
+
+				// background:darken(@light,5%);
+				// color:@dark;
+				// border: none;
+				// &:hover, &:focus{
+				// 	color: #fff;
+				// 	background: @main-clr;
+				// }
+				// &:active{
+				// 	color:#fff;
+				// 	background: darken(@main-clr, 10%);
+				// }
+
+				&:extend(.brd-btn all);
+				background: @light;
+				border-color: @light-grey;
+				color:@dark;
+				
 				&:hover, &:focus{
-					color: #fff;
+					color:#fff;
 					background: @main-clr;
+					border-color: @main-clr;
 				}
 				&:active{
 					color:#fff;
-					background: darken(@main-clr, 10%);
+					background: darken(@main-clr, 12%);
+					border-color: darken(@main-clr, 12%);
 				}
+
+				&.clr-red{.dlg-btn-clr(@red);}
+				&.clr-ylw{.dlg-btn-clr(@yellow);}
+				&.clr-grn{.dlg-btn-clr(@green);}
+				&.clr-cyn{.dlg-btn-clr(@cyan);}
+				&.clr-blu{.dlg-btn-clr(@blue);}
+				&.clr-drk{.dlg-btn-clr(@dark);}
+				&.clr-main{.dlg-btn-clr(@main-clr);}
+
 			}
 		}
 	}

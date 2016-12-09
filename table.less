@@ -139,11 +139,13 @@
 					box-sizing: content-box;
 					border-style: solid;
 					border-color: @dark transparent transparent transparent;
-					border-width: @font-size/2 @font-size/2 0 @font-size/2;
+					border-width: floor(@font-size / 4)*2 ceil(@font-size / 4) 0 ceil(@font-size / 4);
+					margin-left: floor(@font-size / 4);
+					vertical-align: middle;
 				}
 				.sort-asc{
 					border-color: transparent transparent @dark transparent;
-					border-width: 0 @font-size/2 @font-size/2 @font-size/2;
+					border-width: 0 ceil(@font-size / 4) floor(@font-size / 4)*2 ceil(@font-size / 4);
 				}
 
 				&[data-grd-sort-name], &[data-grd-sort-name] *{

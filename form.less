@@ -44,8 +44,9 @@
 	margin: 0;
 	box-sizing: border-box;
 
-	.inp-size(@font-size, @ln-height, @blk-padding-v, @blk-padding-h, @inp-border-width);
-
+	&, &.sz-md{
+		.inp-size(@font-size, @ln-height, @blk-padding-v, @blk-padding-h, @inp-border-width);
+	}
 	&.sz-lg{
 		.inp-size(@font-size-lg, @ln-height-lg, @blk-padding-v-lg, @blk-padding-h-lg, @inp-border-width);
 	}
@@ -70,6 +71,12 @@
 		vertical-align: bottom;
 	}
 
+	&.required::before,div& > .required::before, &.required-r::after,div& > .required-r::after{
+		content: "*";
+		color: @red;
+		font-weight: bold;
+	}
+
 }
 
 input.inp, select.inp, textarea.inp{
@@ -91,7 +98,6 @@ input.inp, select.inp, textarea.inp{
 	&.inp-err, &.clr-red{
 		.inp-clr(@red);
 	}
-
 	&.inp-warn, &.clr-ylw{
 		.inp-clr(@yellow);
 	}
@@ -104,7 +110,6 @@ input.inp, select.inp, textarea.inp{
 	&.clr-cyn{
 		.inp-clr(@cyan);
 	}
-
 	&.inp-main{
 		.inp-clr(@main-clr);
 	}

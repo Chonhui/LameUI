@@ -1,8 +1,8 @@
 
 @font: 'Microsort Yahei';
 
-@import "./def/color-normal.less";
-@import "./def/size-sm.less";
+@import "./defines/color-normal.less";
+@import "./defines/size-sm.less";
 
 @blk-padding-v: (@blk-size - @ln-height) / 2;
 @blk-padding-h: @font-size / 2;
@@ -11,20 +11,25 @@
 @blk-padding-v-sm: (@blk-size-sm - @ln-height-sm) / 2;
 @blk-padding-h-sm: @font-size-sm / 2;
 
+@colorNameList: main, ~"red", ylw, grn, cyn, blu, drk;
+@colorValueList: @main-clr, @red, @yellow, @green, @cyan, @blue, @dark-grey;
+
+@import "./mixins/button-mixin.less";
+
 @import "common.less";
 @import "icon.less";
-@import "button.less";
+@import "label.less";
+@import "button-base.less";
+@import "button-colors.less";
 @import "form.less";
 @import "nav.less";
 @import "tree.less";
 @import "flex.less";
 @import "gridSys.less";
+@import "panel.less";
+@import "util.less";
 
 @import "dropDown.less";
 @import "table.less";
 @import "dialog.less";
-@import "main_frame.less";
 @import "thumbNail.less";
-
-
-@import "special.less";

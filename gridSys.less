@@ -1,3 +1,4 @@
+@grid-col-gap-width:0.2%;
 //grid system
 .make-grid-columns(@base) {
   // Common styles for all sizes of grid columns, widths 1-12
@@ -17,6 +18,8 @@
       box-sizing: border-box;
       // Prevent columns from collapsing when empty
       min-height: 1px;
+      margin-left: @grid-col-gap-width;
+      margin-right: @grid-col-gap-width;
       // Inner gutter via padding
       //padding-left:  1px;
       //padding-right: 1px;
@@ -27,13 +30,13 @@
 .mk-grid(@base){
 	.col(@span) when (@span < @base){
 		.col-@{span}-@{base}{
-			width: percentage(@span / @base);
+			width: percentage(@span / @base) - (@grid-col-gap-width * 2);
 		}
 		.col(@span + 1);
 	}
 	.col(@span) when (@span >= @base){
 		.col-@{span}-@{base}{
-			width:100%;
+			width:99.6%;
 		}
 	}
 	.col(1);
@@ -44,13 +47,15 @@
   position: relative;
   width: 100%;
   padding:0;
-  margin:0 0 (@font-size / 2) 0;
+  margin:0 0 floor(@blk-size / 4) 0;
+  &:last-child{margin-bottom: 0;}
   &:extend(.clearfix all);
   .mk-grid(12);
+  .mk-grid(9);
 }
 
 .row-sep{
   height:0;
   border-bottom: 1px dashed mix(@light, @main-clr, 80%);
-  margin:0 0 (@font-size / 2) 0;
+  margin:0 0 floor(@font-size / 4) 0;
 }
