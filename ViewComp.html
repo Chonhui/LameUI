@@ -3,13 +3,11 @@
 <head>
 	<title>UI Preview - Components</title>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<script type="text/javascript" src="js/angular.min.js"></script>
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/lame.js"></script>
 	<script type="text/javascript" src="js/dlg.js"></script>
 	<script type="text/javascript" src="js/grd.js"></script>
 	<script type="text/javascript" src="js/tab.js"></script>
-	<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
 	<meta charset='utf-8' />
 	<style>
 		body > *{
@@ -31,13 +29,13 @@
 <body>
 	<div id="colors">
 		<h1>Colors</h1>
-		<a href="javascript:void(0);" class="btn sz-lg brd-sld-main">Main</a>
-		<a href="javascript:void(0);" class="btn sz-lg brd-sld-red">Red</a>
-		<a href="javascript:void(0);" class="btn sz-lg brd-sld-blu">Blue</a>
-		<a href="javascript:void(0);" class="btn sz-lg brd-sld-cyn">Cyan</a>
-		<a href="javascript:void(0);" class="btn sz-lg brd-sld-grn">Green</a>
-		<a href="javascript:void(0);" class="btn sz-lg brd-sld-ylw">Yellow</a>
-		<a href="javascript:void(0);" class="btn sz-lg brd-sld-drk">Dark</a>
+		<a href="javascript:void(0);" class="btn sz-lg btn-brd-sld-main">Main</a>
+		<a href="javascript:void(0);" class="btn sz-lg btn-brd-sld-red">Red</a>
+		<a href="javascript:void(0);" class="btn sz-lg btn-brd-sld-blu">Blue</a>
+		<a href="javascript:void(0);" class="btn sz-lg btn-brd-sld-cyn">Cyan</a>
+		<a href="javascript:void(0);" class="btn sz-lg btn-brd-sld-grn">Green</a>
+		<a href="javascript:void(0);" class="btn sz-lg btn-brd-sld-ylw">Yellow</a>
+		<a href="javascript:void(0);" class="btn sz-lg btn-brd-sld-drk">Dark</a>
 	</div>
 	<div id="labels">
 		<h1>Labels<sup class="badge">New</sup></h1>
@@ -50,25 +48,32 @@
 	</div>
 	<div id="buttons" style="line-height: 36px;">
 		<h1>Buttons</h1>
-		<a href="javascript:void(0);" class="btn pln-red"><span>Plain Button</span></a>
-		<a href="javascript:void(0);" class="btn brd-grn"><span>Bordered Button</span></a>
-		<a href="javascript:void(0);" class="btn sld-cyn"><span>Solid Button</span></a>
-		<a href="javascript:void(0);" class="btn pln-sld-blu"><span>Plain to Solid Button</span></a>
-		<a href="javascript:void(0);" class="btn pln-brd-ylw"><span>Plain to Bordered Button</span></a>
-		<a href="javascript:void(0);" class="btn brd-sld-drk"><span>Bordered to Solid Button</span></a>
+		<div>Text only</div>
+		<a href="javascript:void(0);" class="btn btn-pln-drk"><span>Plain</span></a>
+		<a href="javascript:void(0);" class="btn btn-brd-drk"><span>Bordered</span></a>
+		<a href="javascript:void(0);" class="btn btn-sld-drk"><span>Solid</span></a>
+		<a href="javascript:void(0);" class="btn btn-pln-sld-drk"><span>Plain-Solid</span></a>
+		<a href="javascript:void(0);" class="btn btn-pln-brd-drk"><span>Plain-Bordered</span></a>
+		<a href="javascript:void(0);" class="btn btn-brd-sld-drk"><span>Bordered-Solid</span></a>
+		<a href="javascript:void(0);" class="btn btn-s3d-drk"><span>Solid 3d</span></a>
+		<a href="javascript:void(0);" class="btn btn-f3d-drk"><span>Fuzzy 3d</span></a>
 		<br />
-
-		<a href="javascript:openDialog();" class="btn"><i class="ico ico-lf">F</i><span>Open this File</span></a>
-		<a href="javascript:void(0);" class="btn"><i class="ico ico-lf">C</i><span>Open this Case</span></a>
-		<a href="javascript:void(0);" class="btn _dis"><i class="ico ico-lf">P</i><span>Open this Project</span></a>
+		<div>With icons</div>
+		<a href="javascript:void(0);" class="btn btn-pln-drk"><i class="ico ico-lf">Y</i><span>Plain</span></a>
+		<a href="javascript:void(0);" class="btn btn-brd-drk"><i class="ico ico-lf">Y</i><span>Bordered</span></a>
+		<a href="javascript:void(0);" class="btn btn-sld-drk"><i class="ico ico-lf">Y</i><span>Solid</span></a>
+		<a href="javascript:void(0);" class="btn btn-pln-sld-drk"><i class="ico ico-lf">Y</i><span>Plain-Solid</span></a>
+		<a href="javascript:void(0);" class="btn btn-pln-brd-drk"><i class="ico ico-lf">Y</i><span>Plain-Bordered</span></a>
+		<a href="javascript:void(0);" class="btn btn-brd-sld-drk"><i class="ico ico-lf">Y</i><span>Bordered-Solid</span></a>
+		<a href="javascript:void(0);" class="btn btn-s3d-drk"><i class="ico ico-lf">Y</i><span>Solid 3d</span></a>
+		<a href="javascript:void(0);" class="btn btn-f3d-drk"><i class="ico ico-lf">Y</i><span>Fuzzy 3d</span></a>
 		<br />
-		<a href="javascript:void(0);" class="btn brd-main"><i class="ico ico-lf">F</i><span>Open this File</span></a>
-		<a href="javascript:void(0);" class="btn brd-main"><i class="ico ico-lf">C</i><span>Open this Case</span></a>
-		<a href="javascript:void(0);" class="btn brd-main _dis"><i class="ico ico-lf">P</i><span>Open this Project</span></a>
+		<div>Icon only</div>
+		<a href="javascript:void(0);" class="btn btn-brd-drk"><i class="ico">e</i></a>
+		<a href="javascript:void(0);" class="btn btn-sld-drk"><i class="ico">c</i></a>
+		<a href="javascript:void(0);" class="btn btn-s3d-drk"><i class="ico">s</i></a>
 		<br />
-		<a href="javascript:void(0);" class="btn ico">F</a>
-		<a href="javascript:void(0);" class="btn ico">C</a>
-		<a href="javascript:void(0);" class="btn ico">P</a>
+		<div>Link like</div>
 		<a href="javascript:void(0);" class="link-btn"><span>Link</span></a>
 	</div>
 	<div id="navigations">
@@ -85,7 +90,7 @@
 		<h1>ToolBar</h1>
 		<div class="tlb">
 			<ul class="nav">
-				<li><div class='drp'><a class="btn brd-main" href="javascript:void(0);"><i class="ico ico-top">Y</i><span>选择</span><i class="i-dp-arrow"></i></a><div class="drp-pnl mnu">
+				<li><div class='drp'><a class="btn btn-brd-main" href="javascript:void(0);"><i class="ico ico-top">Y</i><span>选择</span><i class="i-dp-arrow"></i></a><div class="drp-pnl mnu">
 					<ul>
 						<li><a class="btn" href="javascript:void(0);"><span>全选</span></a></li>
 						<li><a class="btn" href="javascript:void(0);"><span>取消</span></a></li>
@@ -93,33 +98,33 @@
 						<li><a class="btn" href="javascript:void(0);"><span>取消全部</span></a></li>
 					</ul>
 				</div></div></li>
-				<li><div class='drp'><a class="btn brd-main" href="javascript:void(0);"><i class="ico ico-top">*</i><span>新建</span><i class="i-dp-arrow"></i></a><div class="drp-pnl mnu">
+				<li><div class='drp'><a class="btn btn-brd-main" href="javascript:void(0);"><i class="ico ico-top">*</i><span>新建</span><i class="i-dp-arrow"></i></a><div class="drp-pnl mnu">
 					<ul>
 						<li><a class="btn" href="javascript:void(0);"><span>新建</span></a></li>
 						<li><a class="btn" href="javascript:void(0);"><span>类似新建</span></a></li>
 					</ul>
 				</div></div></li>
-				<li><div class='drp'><a class="btn brd-main sz-sm" href="javascript:void(0);"><i class="ico ico-top">e</i><span>修改</span><i class="i-dp-arrow"></i></a><div class="drp-pnl mnu">
+				<li><div class='drp'><a class="btn btn-brd-main sz-sm" href="javascript:void(0);"><i class="ico ico-top">e</i><span>修改</span><i class="i-dp-arrow"></i></a><div class="drp-pnl mnu">
 					<ul>
 						<li><a class="btn" href="javascript:void(0);"><span>修改</span></a></li>
 						<li><a class="btn" href="javascript:void(0);"><span>批量修改</span></a></li>
 					</ul>
 				</div></div></li>
-				<li><a class="btn brd-main" href="javascript:void(0);"><i class="ico ico-lf">E</i><span>阅览</span></a></li>
-				<li><a class="btn brd-main" href="javascript:void(0);"><i class="ico ico-lf">S</i><span>归档</span></a></li>
+				<li><a class="btn btn-brd-main" href="javascript:void(0);"><i class="ico ico-lf">E</i><span>阅览</span></a></li>
+				<li><a class="btn btn-brd-main" href="javascript:void(0);"><i class="ico ico-lf">S</i><span>归档</span></a></li>
 			</ul>
 		</div>
 	</div>
 	<div id="dialogs" style="line-height:36px;">
 		<h1>Dialogs</h1>
-		<a onclick="$.dlg({content:'Comfirm &amp;amp; cancle dialog', title:'Dialog yes no', width: 400, height:300, buttons:['confirm', 'cancle'], dismissOnBlur:true});" class="btn brd-sld-main">Yes no dialog</a>
-		<a onclick="$.dlg({content:'Yes &amp;amp; no &amp;amp; cancle dialog', title:'Dialog yes no cancle', width: 400, height:300, buttons:['yes', 'no', 'cancle']});" class="btn brd-sld-main">Yes no cancle dialog</a>
-		<a onclick="$.dlg({content:'Yes &amp;amp; no &amp;amp; cancle dialog', title:'Dialog yes no cancle', width: 400, height:300, buttons:['yes', 'no', 'cancle'], modal:true});" class="btn brd-sld-main">Modal dialog</a>
-		<a onclick="$.dlg({content:$('#diadia'), title:'Dialog yes no cancle', fullScreen:true, buttons:['yes', 'no', 'cancle'], modal:true});" class="btn brd-sld-main">Full screen dialog</a>
-		<a onclick="$('<iframe></iframe>').attr('src','./iframe.html').css({width:'100%', height:'100%'}).dlg({title:'Dialog yes no cancle', fullScreen:true, buttons:['yes', 'no', 'cancle'], modal:true, showFooter:false});" class="btn brd-sld-main">Iframe dialog full</a>
-		<a onclick="$('<iframe></iframe>').attr('src','./iframe.html').css({width:'100%', height:'100%'}).dlg({title:'Dialog yes no cancle', buttons:['yes', 'no', 'cancle'], showFooter:false, width: 400, height:300});" class="btn brd-sld-main">Iframe dialog</a>
-		<a onclick="$.dlg({content:'Comfirm &amp;amp; cancle dialog', title:'Dialog yes no', width: 400, height:300, buttons:[], showFooter:false});" class="btn brd-sld-main">No footer dialog</a>
-		<a onclick="$.dlg({content:$('#questionForm'), title:'Dialog yes no', width: 400, height:300, buttons:['confirm', 'cancle'], mixClass:'msg quest', showHeader:false});" class="btn brd-sld-main">No header dialog</a>
+		<a onclick="$.dlg({content:'Comfirm &amp;amp; cancle dialog', title:'Dialog yes no', width: 400, height:300, buttons:['confirm', 'cancle'], dismissOnBlur:true});" class="btn btn-brd-sld-main">Yes no dialog</a>
+		<a onclick="$.dlg({content:'Yes &amp;amp; no &amp;amp; cancle dialog', title:'Dialog yes no cancle', width: 400, height:300, buttons:['yes', 'no', 'cancle']});" class="btn btn-brd-sld-main">Yes no cancle dialog</a>
+		<a onclick="$.dlg({content:'Yes &amp;amp; no &amp;amp; cancle dialog', title:'Dialog yes no cancle', width: 400, height:300, buttons:['yes', 'no', 'cancle'], modal:true});" class="btn btn-brd-sld-main">Modal dialog</a>
+		<a onclick="$.dlg({content:$('#diadia'), title:'Dialog yes no cancle', fullScreen:true, buttons:['yes', 'no', 'cancle'], modal:true});" class="btn btn-brd-sld-main">Full screen dialog</a>
+		<a onclick="$('<iframe></iframe>').attr('src','./iframe.html').css({width:'100%', height:'100%'}).dlg({title:'Dialog yes no cancle', fullScreen:true, buttons:['yes', 'no', 'cancle'], modal:true, showFooter:false});" class="btn btn-brd-sld-main">Iframe dialog full</a>
+		<a onclick="$('<iframe></iframe>').attr('src','./iframe.html').css({width:'100%', height:'100%'}).dlg({title:'Dialog yes no cancle', buttons:['yes', 'no', 'cancle'], showFooter:false, width: 400, height:300});" class="btn btn-brd-sld-main">Iframe dialog</a>
+		<a onclick="$.dlg({content:'Comfirm &amp;amp; cancle dialog', title:'Dialog yes no', width: 400, height:300, buttons:[], showFooter:false});" class="btn btn-brd-sld-main">No footer dialog</a>
+		<a onclick="$.dlg({content:$('#questionForm'), title:'Dialog yes no', width: 400, height:300, buttons:['confirm', 'cancle'], mixClass:'msg quest', showHeader:false});" class="btn btn-brd-sld-main">No header dialog</a>
 
 		
 
@@ -127,13 +132,13 @@
 			<div id="questionForm" class="dlg-msg grid-form">
 				<div class="row">
 					<span class="col-1-12"><i class='ico' style="display: inline-block; height: 32px; width: 32px; font-size: 20px; line-height: 34px; background-color: #3366aa; color: #fff; overflow:hidden;">?</i></span>
-					<label class="inp col-2-12">Title:</label>
+					<label class="inp-ttl col-2-12">Title:</label>
 					<input type ="text" class="inp col-6-12" />
 					<span class="iln-blk col-3-12">Message</span>
 				</div>
 				<div class="row">
 					<span class="col-1-12"><i class='ico' style="display: inline-block; height: 32px; width: 32px; font-size: 20px; line-height: 34px; background-color: #3366aa; color: #fff; overflow:hidden;">Y</i></span>
-					<label class="inp col-2-12">Title:</label>
+					<label class="inp-ttl col-2-12">Title:</label>
 					<input type ="text" class="inp col-6-12" />
 					<span class="iln-blk col-3-12">Message</span>
 				</div>
@@ -152,11 +157,11 @@
 	</div>
 	<div id="messages">
 		<h1>Messages</h1>
-		<a href="javascript:$.dlg.tip('A massage is shown',{type:'error'})" class="btn sz-lg brd-sld-red">Tip error</a>
-		<a href="javascript:$.dlg.tip('A massage is shown',{type:'question'})" class="btn sz-lg brd-sld-blu">Tip question</a>
-		<a href="javascript:$.dlg.tip('A massage is shown',{type:'info'})" class="btn sz-lg brd-sld-cyn">Tip infomation</a>
-		<a href="javascript:$.dlg.tip('A massage is shown',{type:'success'})" class="btn sz-lg brd-sld-grn">Tip success</a>
-		<a href="javascript:$.dlg.tip('A massage is shown',{type:'alert'})" class="btn sz-lg brd-sld-ylw">Tip alert</a>
+		<a href="javascript:$.dlg.tip('A massage is shown',{type:'error'})" class="btn sz-lg btn-brd-sld-red">Tip error</a>
+		<a href="javascript:$.dlg.tip('A massage is shown',{type:'question'})" class="btn sz-lg btn-brd-sld-blu">Tip question</a>
+		<a href="javascript:$.dlg.tip('A massage is shown',{type:'info'})" class="btn sz-lg btn-brd-sld-cyn">Tip infomation</a>
+		<a href="javascript:$.dlg.tip('A massage is shown',{type:'success'})" class="btn sz-lg btn-brd-sld-grn">Tip success</a>
+		<a href="javascript:$.dlg.tip('A massage is shown',{type:'alert'})" class="btn sz-lg btn-brd-sld-ylw">Tip alert</a>
 	</div>
 	<div id="thumb">
 		<h1>Thumbnail </h1>
@@ -218,7 +223,7 @@
 			<div class="pnl-bdy">
 				<div class="grid-form">
 					<div class="row">
-						<label class="inp col-2-12">Note:</label>
+						<label class="inp-ttl col-2-12">Note:</label>
 						<input type="text" class="inp col-10-12">
 					</div>
 				</div>
@@ -242,40 +247,20 @@
 	</div>
 	<div id="forms">
 		<h1>Forms</h1>
-		<form>
-			<fieldset>
-				<label class="inp">Label</label>
-				<input type="text" class="inp" placeholder="Text" />
-				<input type="password" class="inp" placeholder="Password" />
-				<select type="text" class="inp" placeholder="Text" >
-					<option>Option 1</option>
-					<option>Option 2</option>
-					<option>Option 3</option>
-				</select>
-				<div class="inp">
-					<input type="radio" name="abc" value="1"/><span>选这个</span>
-				</div>
-				<div class="inp">
-					<input type="checkbox" name="abc" value="2"/><span>然后打勾</span>
-				</div>
-			</fieldset>
-			<fieldset class = "fluid">
-				<label class="inp" style="text-align:left;">Label</label>
-				<input type="text" class="inp" placeholder="Text" />
-				<input type="password" class="inp" placeholder="Password" />
-				<textarea class="inp" placeholder="Textarea" ></textarea>
-				<select type="text" class="inp" placeholder="Text" >
-					<option>Option 1</option>
-					<option>Option 2</option>
-					<option>Option 3</option>
-				</select>
-			</fieldset>
-		</form>
 
 		<form class="grid-form">
 			<div class="row">
-				<label class="inp col-2-12">请输入内容:</label><input type="text" class="inp col-3-12" placeholder="Text" />
-				<label class="inp col-2-12">请输入内容:</label>
+				<label class="inp-ttl sz-lg col-2-12">请输入内容:</label>
+				<div class="col-8-12">
+					<div class="inp-cmb sz-lg">
+						<input type="text" class="inp"/>
+						<a class="btn btn-brd-sld-red inp-tag" href="javascript:;">abc</a>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<label class="inp-ttl col-2-12">请输入内容:</label><input type="text" class="inp col-3-12" placeholder="Text" />
+				<label class="inp-ttl col-2-12">请输入内容:</label>
 				<select type="text" class="inp col-3-12 clr-blu" placeholder="Text" >
 					<option>Option 1</option>
 					<option>Option 2</option>
@@ -283,13 +268,13 @@
 				</select>
 			</div>
 			<div class="row">
-				<label class="inp col-2-12 required">请输入内容:</label>
+				<label class="inp-ttl col-2-12 required">请输入内容:</label>
 				<div class="col-3-12">
 					<input type="text" class="inp col-5-12 clr-cyn" value="青色"/>
 					<span class="iln-blk col-2-12">--</span>
 					<input type="text" class="inp col-5-12 inp-main" value="main"/>
 				</div>
-				<label class="inp col-2-12">请输入内容:</label>
+				<label class="inp-ttl col-2-12">请输入内容:</label>
 				<div class="col-3-12">
 					<input type="text" class="inp col-5-12" />
 					<span class="iln-blk col-2-12">--</span>
@@ -297,19 +282,19 @@
 				</div>
 			</div>
 			<div class="row">
-				<label class="inp col-2-12">请输入内容:</label>
+				<label class="inp-ttl col-2-12">请输入内容:</label>
 				<input type="text" class="inp col-8-12 inp-err" placeholder="Text" value="错误"/>
 			</div>
 			<div class="row">
-				<label class="inp col-2-12">请输入内容:</label>
+				<label class="inp-ttl col-2-12">请输入内容:</label>
 				<textarea type="text" class="inp col-8-12 inp-warn" rows="5" placeholder="Text" >警告</textarea>
 			</div>
 			<div class="row">
-				<label class="inp col-2-12">请输入内容:</label><input type="text" class="inp col-3-12 inp-succ" placeholder="Text" value="成功"/>
+				<label class="inp-ttl col-2-12">请输入内容:</label><input type="text" class="inp col-3-12 inp-succ" placeholder="Text" value="成功"/>
 			</div>
 			<div class="row"><span class="iln-blk col-12-12">&nbsp;<span></div>
 			<div class="row">
-				<label class="inp col-2-12">请输入内容:</label>
+				<label class="inp-ttl col-2-12">请输入内容:</label>
 				<div class="col-8-12">
 					<input type="text" class="inp col-5-12" disabled="disabled" value="Forbid 禁止"/>
 					<span class="iln-blk col-2-12">--</span>
@@ -317,21 +302,21 @@
 				</div>
 			</div>
 			<div class="row">
-				<label class="inp col-2-12">并列:</label>
+				<label class="inp-ttl col-2-12">并列:</label>
 				<input type="text" class="inp col-1-12"/>
 				<input type="text" class="inp col-3-12"/>
 				<input type="text" class="inp col-4-12"/>
 				<label class="iln-blk col-2-12">并列结束</label>
 			</div>
 			<div class="row">
-				<label class="inp col-2-12">请输入内容:</label>
-				<div class="inp col-3-12">
+				<label class="inp-ttl col-2-12">请输入内容:</label>
+				<div class="inp-grp col-3-12">
 					<input type="radio" name="abc" value="1"/><span class="required-r">选这个</span>
 				</div>
-				<div class="inp col-3-12">
+				<div class="inp-grp col-3-12">
 					<input type="radio" name="abc" value="2"/><span>或者选这个</span>
 				</div>
-				<div class="inp col-2-12">
+				<div class="inp-grp col-2-12">
 					<input type="checkbox" name="abc" value="2"/><span class="required-r">然后打勾</span>
 				</div>
 			</div>
@@ -397,36 +382,36 @@
 	</div>
 	<script type="text/javascript">
 	var testData = {"total":10000,"pageNumber":1,"rows":[
-		{"state":"closed","archiveId":"1","archiveCode":"DA442000","roomName":"中山市档案馆","deptCode":"2159","deptName":"","createUserName":"","createDate":"","fullName":"何志玲; 吴佩容; 严荫庭; 张长飞; 李文娟1","mobiTel":"无; 无; 无; 12321456215; 无"},
-		{"state":"closed","archiveId":"3","archiveCode":"DA442011","roomName":"小榄镇档案馆","deptCode":"2312","deptName":"","createUserName":"管理员","createDate":"2014-08-23 15:01:28.437","fullName":"小榄人民政府","mobiTel":"无"},
-		{"state":"closed","archiveId":"9","archiveCode":"DA442006","roomName":"火炬高技术产业开发区档案馆","deptCode":"2425","deptName":"","createUserName":"管理员","createDate":"2014-10-23 21:28:08.014","fullName":"","mobiTel":"无"},
-		{"state":"closed","archiveId":"10","archiveCode":"DA442004","roomName":"南区档案分馆","deptCode":"2429","deptName":"","createUserName":"管理员","createDate":"2014-10-23 21:28:59.191","fullName":"","mobiTel":"无"},
-		{"state":"closed","archiveId":"11","archiveCode":"DA442001","roomName":"石岐区档案馆","deptCode":"2427","deptName":"","createUserName":"管理员","createDate":"2014-10-23 21:29:47.488","fullName":"","mobiTel":"无"},
-		{"state":"closed","archiveId":"12","archiveCode":"DA442024","roomName":"坦洲镇档案馆","deptCode":"2433","deptName":"","createUserName":"管理员","createDate":"2014-10-29 05:36:08.26","fullName":"","mobiTel":"无"},
-		{"state":"closed","archiveId":"13","archiveCode":"DA442021","roomName":"三乡镇档案馆","deptCode":"2437","deptName":"","createUserName":"管理员","createDate":"2014-10-29 05:36:51.705","fullName":"","mobiTel":"无"},
-		{"state":"closed","archiveId":"14","archiveCode":"DA442007","roomName":"黄圃镇档案馆","deptCode":"2307","deptName":"","createUserName":"管理员","createDate":"2014-10-31 23:20:52.861","fullName":"","mobiTel":"无"},
-		{"state":"closed","archiveId":"15","archiveCode":"DA442012","roomName":"东升镇档案馆","deptCode":"2443","deptName":"","createUserName":"管理员","createDate":"2014-11-03 21:00:30.31","fullName":"","mobiTel":"无"},
-		{"state":"closed","archiveId":"16","archiveCode":"DA442020","roomName":"沙溪镇档案馆","deptCode":"2447","deptName":"","createUserName":"管理员","createDate":"2014-11-03 21:01:21.584","fullName":"","mobiTel":"无"},
-		{"state":"closed","archiveId":"17","archiveCode":"DA442013","roomName":"古镇镇档案馆","deptCode":"2452","deptName":"","createUserName":"管理员","createDate":"2014-11-06 20:54:58.887","fullName":"","mobiTel":"无"},
-		{"state":"closed","archiveId":"18","archiveCode":"DA442009","roomName":"东凤镇档案馆","deptCode":"2457","deptName":"","createUserName":"管理员","createDate":"2014-11-06 23:36:02.913","fullName":"","mobiTel":"无"},
-		{"state":"closed","archiveId":"19","archiveCode":"DA442008","roomName":"南头镇档案馆","deptCode":"2464","deptName":"","createUserName":"管理员","createDate":"2014-11-08 03:37:26.97","fullName":"","mobiTel":"无"},
-		{"state":"closed","archiveId":"20","archiveCode":"DA442023","roomName":"神湾镇档案馆","deptCode":"2480","deptName":"","createUserName":"管理员","createDate":"2014-11-13 02:39:38.045","fullName":"","mobiTel":"无"},
-		{"state":"closed","archiveId":"21","archiveCode":"DA442002","roomName":"东区档案馆","deptCode":"2484","deptName":"","createUserName":"管理员","createDate":"2014-11-13 02:40:27.565","fullName":"","mobiTel":"无"},
-		{"state":"closed","archiveId":"22","archiveCode":"DA442003","roomName":"西区档案馆","deptCode":"2492","deptName":"","createUserName":"管理员","createDate":"2014-11-15 03:51:55.065","fullName":"","mobiTel":"无"},
-		{"state":"closed","archiveId":"23","archiveCode":"DA442014","roomName":"横栏镇档案馆","deptCode":"2496","deptName":"","createUserName":"管理员","createDate":"2014-11-17 21:16:26.465","fullName":"","mobiTel":"无"},
-		{"state":"closed","archiveId":"24","archiveCode":"DA442015","roomName":"三角镇档案馆","deptCode":"2502","deptName":"","createUserName":"管理员","createDate":"2014-11-19 04:13:50.323","fullName":"","mobiTel":"无"},
-		{"state":"closed","archiveId":"25","archiveCode":"DA442010","roomName":"阜沙镇档案馆","deptCode":"2508","deptName":"","createUserName":"管理员","createDate":"2014-11-19 05:13:07.118","fullName":"","mobiTel":"无"},
-		{"state":"closed","archiveId":"26","archiveCode":"DA442022","roomName":"板芙镇档案馆","deptCode":"2515","deptName":"","createUserName":"管理员","createDate":"2014-11-19 22:27:26.123","fullName":"","mobiTel":"无"},
-		{"state":"closed","archiveId":"27","archiveCode":"DA442018","roomName":"港口镇档案馆","deptCode":"2525","deptName":"","createUserName":"管理员","createDate":"2014-11-20 05:04:48.413","fullName":"","mobiTel":"无"},
-		{"state":"closed","archiveId":"28","archiveCode":"DA442016","roomName":"民众镇档案馆","deptCode":"2535","deptName":"","createUserName":"管理员","createDate":"2014-11-20 05:17:31.805","fullName":"","mobiTel":"无"},
-		{"state":"closed","archiveId":"29","archiveCode":"DA442017","roomName":"南朗镇档案馆","deptCode":"2542","deptName":"","createUserName":"管理员","createDate":"2014-11-26 21:41:28.111","fullName":"","mobiTel":"无"},
-		{"state":"closed","archiveId":"30","archiveCode":"DA442005","roomName":"五桂山档案馆","deptCode":"2548","deptName":"","createUserName":"管理员","createDate":"2014-11-26 23:07:24.413","fullName":"","mobiTel":"无"},
-		{"state":"closed","archiveId":"31","archiveCode":"DA442019","roomName":"大涌镇档案馆","deptCode":"2552","deptName":"","createUserName":"管理员","createDate":"2014-11-26 23:56:00.755","fullName":"","mobiTel":"无"}
+		{"state":"closed","id":"1","code":"dddd2000","name":"ASDvaeiic","sn":"2159","deptName":"","creator":"","date":"","remark":"asdf","tel":"null"},
+		{"state":"closed","id":"3","code":"dddd2011","name":"ASDvaeiic","sn":"2312","deptName":"","creator":"Admin","date":"2014-08-23 15:01:28.437","remark":"bba","tel":"null"},
+		{"state":"closed","id":"9","code":"dddd2006","name":"ASDvaeiic","sn":"2425","deptName":"","creator":"Admin","date":"2014-10-23 21:28:08.014","remark":"","tel":"null"},
+		{"state":"closed","id":"10","code":"dddd2004","name":"南区档案分馆","sn":"2429","deptName":"","creator":"Admin","date":"2014-10-23 21:28:59.191","remark":"","tel":"null"},
+		{"state":"closed","id":"11","code":"dddd2001","name":"ASDvaeiic","sn":"2427","deptName":"","creator":"Admin","date":"2014-10-23 21:29:47.488","remark":"","tel":"null"},
+		{"state":"closed","id":"12","code":"dddd2024","name":"ASDvaeiic","sn":"2433","deptName":"","creator":"Admin","date":"2014-10-29 05:36:08.26","remark":"","tel":"null"},
+		{"state":"closed","id":"13","code":"dddd2021","name":"ASDvaeiic","sn":"2437","deptName":"","creator":"Admin","date":"2014-10-29 05:36:51.705","remark":"","tel":"null"},
+		{"state":"closed","id":"14","code":"dddd2007","name":"ASDvaeiic","sn":"2307","deptName":"","creator":"Admin","date":"2014-10-31 23:20:52.861","remark":"","tel":"null"},
+		{"state":"closed","id":"15","code":"dddd2012","name":"ASDvaeiic","sn":"2443","deptName":"","creator":"Admin","date":"2014-11-03 21:00:30.31","remark":"","tel":"null"},
+		{"state":"closed","id":"16","code":"dddd2020","name":"ASDvaeiic","sn":"2447","deptName":"","creator":"Admin","date":"2014-11-03 21:01:21.584","remark":"","tel":"null"},
+		{"state":"closed","id":"17","code":"dddd2013","name":"ASDvaeiic","sn":"2452","deptName":"","creator":"Admin","date":"2014-11-06 20:54:58.887","remark":"","tel":"null"},
+		{"state":"closed","id":"18","code":"dddd2009","name":"ASDvaeiic","sn":"2457","deptName":"","creator":"Admin","date":"2014-11-06 23:36:02.913","remark":"","tel":"null"},
+		{"state":"closed","id":"19","code":"dddd2008","name":"ASDvaeiic","sn":"2464","deptName":"","creator":"Admin","date":"2014-11-08 03:37:26.97","remark":"","tel":"null"},
+		{"state":"closed","id":"20","code":"dddd2023","name":"ASDvaeiic","sn":"2480","deptName":"","creator":"Admin","date":"2014-11-13 02:39:38.045","remark":"","tel":"null"},
+		{"state":"closed","id":"21","code":"dddd2002","name":"ASDvaeiic","sn":"2484","deptName":"","creator":"Admin","date":"2014-11-13 02:40:27.565","remark":"","tel":"null"},
+		{"state":"closed","id":"22","code":"dddd2003","name":"ASDvaeiic","sn":"2492","deptName":"","creator":"Admin","date":"2014-11-15 03:51:55.065","remark":"","tel":"null"},
+		{"state":"closed","id":"23","code":"dddd2014","name":"ASDvaeiic","sn":"2496","deptName":"","creator":"Admin","date":"2014-11-17 21:16:26.465","remark":"","tel":"null"},
+		{"state":"closed","id":"24","code":"dddd2015","name":"ASDvaeiic","sn":"2502","deptName":"","creator":"Admin","date":"2014-11-19 04:13:50.323","remark":"","tel":"null"},
+		{"state":"closed","id":"25","code":"dddd2010","name":"ASDvaeiic","sn":"2508","deptName":"","creator":"Admin","date":"2014-11-19 05:13:07.118","remark":"","tel":"null"},
+		{"state":"closed","id":"26","code":"dddd2022","name":"ASDvaeiic","sn":"2515","deptName":"","creator":"Admin","date":"2014-11-19 22:27:26.123","remark":"","tel":"null"},
+		{"state":"closed","id":"27","code":"dddd2018","name":"ASDvaeiic","sn":"2525","deptName":"","creator":"Admin","date":"2014-11-20 05:04:48.413","remark":"","tel":"null"},
+		{"state":"closed","id":"28","code":"dddd2016","name":"ASDvaeiic","sn":"2535","deptName":"","creator":"Admin","date":"2014-11-20 05:17:31.805","remark":"","tel":"null"},
+		{"state":"closed","id":"29","code":"dddd2017","name":"ASDvaeiic","sn":"2542","deptName":"","creator":"Admin","date":"2014-11-26 21:41:28.111","remark":"","tel":"null"},
+		{"state":"closed","id":"30","code":"dddd2005","name":"ASDvaeiic","sn":"2548","deptName":"","creator":"Admin","date":"2014-11-26 23:07:24.413","remark":"","tel":"null"},
+		{"state":"closed","id":"31","code":"dddd2019","name":"ASDvaeiic","sn":"2552","deptName":"","creator":"Admin","date":"2014-11-26 23:56:00.755","remark":"","tel":"null"}
 	],"success":true},
 	testOpts = {
 		pageSize:32,
 		pageNumber: 108,
-		idField:"archiveId",
+		idField:"id",
 		loader: function(param,suc,err){suc(testData);},
 		rowSettings:{styler:function(r,i){
 			var clz = [];
@@ -436,29 +421,16 @@
 		}},
 		columnSettings:[
 		{checkbox:true, width:28, fixWidth:true},
-			{field: 'archiveCode', width: 50, title: '档案馆代码',sortable: true,align:'center'},
-        {field: 'archiveId', width: 50, title: '馆内档案室',sortable: true,align:'center',
-        	formatter:function(value){
-        		var href = "<a href='javascript:viewArchiveRoom("+value+");' >查看</a>";
-        		return href;
-        		}},
-        {field: 'roomName', width: 100, title: '档案馆名称',sortable: true,align:'center'},
-        {field: 'deptCode', width: 60,title:'部门代码',sortable: true,hidden:true},
-        {field: 'createUserName',width:60,title:'创建人',sortable:true,align:'center'},
-        {field: 'createDate',width:60,title:'创建时间',sortable:true,align:'center',
+		{field: 'code', width: 50, title: 'Code',sortable: true,align:'center'},
+        {field: 'name', width: 100, title: 'Name',sortable: true,align:'center'},
+        {field: 'sn', width: 60,title:'SN',sortable: true,hidden:true},
+        {field: 'createor',width:60,title:'Createor',sortable:true,align:'center'},
+        {field: 'date',width:60,title:'Date',sortable:true,align:'center',
         	formatter:function(value){
         		return value.substring(0,10);
         	}},
-        {field: 'fullName', width: 80,title:'档案馆管理员',sortable: false,align:'center', formatter:function(v, r, i){
-        		var au = v.split("; "), ap = r.mobiTel.split("; "), htm = [];
-        		for(var i = 0; i<au.length; i++) htm.push("<span title='"+au[i]+" (电话: "+ap[i]+")'>" + au[i] + "</span>");
-        		return htm.join("<span>；</span>");
-        },styler:function(){return "white-space:normal; line-height:1.4;";}},
-        {field: 'mobiTel', width: 80,title:'电话',sortable: false,align:'center', formatter:function(v, r, i){
-        		var au = r.fullName.split("; "), ap = v.split("; "), htm = [];
-        		for(var i = 0; i<au.length; i++) htm.push("<span title='"+au[i]+" (电话: "+ap[i]+")'>" + ap[i] + "</span>");
-        		return htm.join("<span>；</span>");
-        },styler:function(){return "white-space:normal; line-height:1.4;";}}
+        {field: 'remark', width: 80,title:'Remark',sortable: false,align:'center',styler:function(){return "white-space:normal; line-height:1.4;";}},
+        {field: 'tel', width: 80,title:'Tel',sortable: false,align:'center',styler:function(){return "white-space:normal; line-height:1.4;";}}
 		]
 	};
 	var a = $.grd($.extend({

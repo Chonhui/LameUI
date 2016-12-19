@@ -1,0 +1,60 @@
+<!DocType>
+<html>
+<head>
+	<title>Monkey Typer</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body class="inp-grp">
+	<script>
+	function r(x){
+		return Math.floor(Math.random()*x);
+	}
+
+	var pr = "aeiouaeiouy", pp = "bcdfghjklmnpqrstvwxyz";
+
+	function pronu(){
+		rs = "";
+		if(r(4)<1) rs+= pp.charAt(r(pp.length));
+		if(r(2)<1) rs+= pp.charAt(r(pp.length));
+		rs+=pr.charAt(r(pr.length));
+		if(r(10)<1) rs+=pr.charAt(r(pr.length));
+		if(r(3)<1) rs+= pp.charAt(r(pp.length));
+		if(r(2)<1) rs+= pp.charAt(r(pp.length));
+		return rs;
+	}
+
+	function word(len){
+		var rs = [];
+		for(;len>0;len--){
+			rs.push(pronu());
+		}
+		return rs.join("");
+	}
+
+	function sentence(len) {
+		var rs = [], i = 0;
+		for(;i<len;i++)
+			rs.push(word(r(4)+1).replace(/^./g,function(e){return e.toUpperCase()}));
+		return rs.join(" ")+".";
+	};
+
+	function paragragh(len) {
+		var rs = [], i = 0;
+		rs.push("&nbsp;&nbsp;&nbsp;&nbsp;");
+		for(;i<len;i++){
+			rs.push(sentence(r(15)+2));
+			if(r(3)>0){
+				if(r(3)>0) rs.push("<br />");
+				rs.push("<br />&nbsp;&nbsp;&nbsp;&nbsp;");
+			}
+		}
+		return rs.join(" ");
+	}
+		var doc = document; head = doc.head, body = doc.body;
+		var ttl = doc.createElement("title");
+		ttl.innerHTML = sentence(5);
+		body.innerHTML = paragragh(20);
+		head.appendChild(ttl);
+	</script>
+</body>
+</html>

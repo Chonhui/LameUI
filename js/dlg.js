@@ -22,8 +22,10 @@
 			padContent:"dlg-msg",
 			closeButton:"btn ico dlg-cls",
 			title:"dlg-ttl clearfix",
-			button:"btn",
+			// button:"btn dlg-ftr-btn",
+			button:"btn dlg-ftr-btn",
 			buttons:"btns",
+			winButtons:"dlg-win-btns",
 			dialog:"dlg clearfix",
 			fullScreen:"mx",
 			noHeader:'no-hdr',
@@ -84,7 +86,7 @@
 			var that = this;
 			var hdr = this.$header = $("<div class='"+proto.csss.header
 				+"'><span class='"+proto.csss.title
-				+"'></span><div class='"+proto.csss.buttons
+				+"'></span><div class='"+proto.csss.winButtons
 				+"'><a class='"+proto.csss.closeButton
 				+"'></a></div></div>");
 			$(".dlg-ttl", hdr).text(this.options.title);
@@ -103,14 +105,14 @@
 				$.each(this.options.buttons,function(i, v){
 					var btn;
 					if(typeof v === 'string'){
-						btn = $("<a class='btn'>"+proto.txts[v]+"</a>");
+						btn = $("<a class='"+proto.csss.button+"'>"+proto.txts[v]+"</a>");
 						btns.append(btn);
 						if(v == 'yes') btn.click(function(){that._dismiss(that.options.onYes);});
 						if(v == 'no') btn.click(function(){that._dismiss(that.options.onNo);});
 						if(v == 'cancle') btn.click(function(){that._dismiss(that.options.onCancle);});
 						if(v == 'confirm') btn.click(function(){that._dismiss(that.options.onConfirm);});
 					}else{
-						btn = $("<input class='btn' type='button' value='"+v.title+"'/>");
+						btn = $("<input class='"+proto.csss.button+"' type='button' value='"+v.title+"'/>");
 						btns.append(btn);
 						if(typeof v.click === 'function'){
 							btn.click(v.click);
@@ -247,6 +249,7 @@
 			});
 			this.$header.on("mousedown selectstart", function(e){
 				e.preventDefault();
+				if(e.target == that.closeButton.get(0)) return;
 				that.state.drag = true;
 				that._dragStartParams = {
 					dlgTop: parseInt(that.$win.css("top")),

@@ -1,4 +1,4 @@
-@dlg-brd-clr:#ccc;
+@dlg-brd-clr:@light-grey;
 body.dlg-mdl-dom{
 	overflow: hidden;
 	height: 100%;
@@ -19,7 +19,7 @@ body.dlg-mdl-dom{
 .dlg{
 	display: block;
 	background: @bg-clr;
-	border: 1px solid @dlg-brd-clr;
+	border: @bdr-width solid @dlg-brd-clr;
 	box-shadow: 0 0 10px @dlg-brd-clr;
 	margin:0;
 	padding:0;
@@ -102,7 +102,7 @@ body.dlg-mdl-dom{
 				margin-left: floor(@font-size / 4);
 				&:first-child{margin-left: 0;}
 			}
-			.btn.dlg-ftr-btn{
+			.dlg-ftr-btn{
 
 				// background:darken(@light,5%);
 				// color:@dark;
@@ -118,7 +118,7 @@ body.dlg-mdl-dom{
 
 				&:extend(.brd-btn all);
 				background: @light;
-				border-color: @light-grey;
+				border-color: mix(@light-grey, @light);
 				color:@dark;
 				
 				&:hover, &:focus{
@@ -139,7 +139,6 @@ body.dlg-mdl-dom{
 				&.clr-blu{.dlg-btn-clr(@blue);}
 				&.clr-drk{.dlg-btn-clr(@dark);}
 				&.clr-main{.dlg-btn-clr(@main-clr);}
-
 			}
 		}
 	}

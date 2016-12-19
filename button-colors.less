@@ -1,31 +1,50 @@
+.brd-btn{
+	.brd-btn();
+}
+.s3d-btn{
+	.s3d-btn();
+}
+.fuzzy-3d{
+	box-shadow: inset 0 4px 10px rgba(255, 255, 255, 0.5), inset 0 -4px 10px rgba(0, 0, 0, 0.5);
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5), 0 -1px 1px rgba(0,0,0,0.5);
+}
+
 .make-btn-clrs(@index){
 	.do-make-btn-clrs(@index) when (@index <= length(@colorNameList)){
 		@clr-nm: extract(@colorNameList,@index);
 		@clr: extract(@colorValueList, @index);
-		.btn.pln-@{clr-nm} {
+		.btn-pln-@{clr-nm} {
 			.btn-plain-clr-static(@clr);
 			.btn-plain-clr-active(@clr);
 		}
-		.btn.brd-@{clr-nm} {
+		.btn-brd-@{clr-nm} {
 			&:extend(.brd-btn all);
 			.btn-bordered-clr-staic(@clr);
 			.btn-bordered-clr-active(@clr);
 		}
-		.btn.sld-@{clr-nm} {
+		.btn-sld-@{clr-nm}, .btn-f3d-@{clr-nm} {
 			.btn-solid-clr-static(@clr);
 			.btn-solid-clr-active(@clr);
 		}
-		.btn.brd-sld-@{clr-nm} {
+		.btn-s3d-@{clr-nm} {
+			&:extend(.s3d-btn all);
+			.btn-solid-3d-clr-static(@clr);
+			.btn-solid-3d-clr-active(@clr);
+		}
+		.btn-f3d-@{clr-nm} {
+			&:extend(.fuzzy-3d all);
+		}
+		.btn-brd-sld-@{clr-nm} {
 			&:extend(.brd-btn all);
 			.btn-bordered-clr-staic(@clr);
 			.btn-solid-clr-active-brd-dim(@clr);
 		}
-		.btn.pln-brd-@{clr-nm} {
+		.btn-pln-brd-@{clr-nm} {
 			&:extend(.brd-btn all);
 			.btn-plain-clr-static-brd(@clr);
 			.btn-bordered-clr-active(@clr);
 		}
-		.btn.pln-sld-@{clr-nm} {
+		.btn-pln-sld-@{clr-nm} {
 			.btn-plain-clr-static(@clr);
 			.btn-solid-clr-active-dim(@clr);
 		}
