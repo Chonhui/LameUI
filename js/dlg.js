@@ -101,24 +101,27 @@
 			ftr.appendTo(this.$win);
 			if(!this.options.showFooter) {ftr.hide(); this.$win.addClass(proto.csss.noFooter);}
 			else{
-				var that = this;
+				var that = this, defaultBtn, declaredDefaultBtn;
 				$.each(this.options.buttons,function(i, v){
 					var btn;
 					if(typeof v === 'string'){
-						btn = $("<a class='"+proto.csss.button+"'>"+proto.txts[v]+"</a>");
+						btn = $("<a href='javascript:void(0);' class='"+proto.csss.button+"'>"+proto.txts[v]+"</a>");
 						btns.append(btn);
-						if(v == 'yes') btn.click(function(){that._dismiss(that.options.onYes);});
+						if(v == 'yes') defaultBtn = btn.click(function(){that._dismiss(that.options.onYes);});
 						if(v == 'no') btn.click(function(){that._dismiss(that.options.onNo);});
 						if(v == 'cancle') btn.click(function(){that._dismiss(that.options.onCancle);});
-						if(v == 'confirm') btn.click(function(){that._dismiss(that.options.onConfirm);});
+						if(v == 'confirm') defaultBtn = btn.click(function(){that._dismiss(that.options.onConfirm);});
 					}else{
 						btn = $("<input class='"+proto.csss.button+"' type='button' value='"+v.title+"'/>");
+						defaultBtn = defaultBtn || btn;
 						btns.append(btn);
 						if(typeof v.click === 'function'){
 							btn.click(v.click);
 						}
 					}
+					if(v.default) declaredDefaultBtn = btn;
 				});
+				this.defaultBtn = declaredDefaultBtn || defaultBtn;
 			}
 		},
 		_createBody:function(){
@@ -195,6 +198,7 @@
 				this.$win.hide().css(po).show();
 			}
 			this.moveToTop();
+			if(this.defaultBtn) this.defaultBtn.focus();
 		},
 		_sizeTo:function(size){
 			if(size.height)this.$win.height(size.height);
@@ -347,18 +351,20 @@
 		return new dlg(e, options);
 	}
 	$.dlg.tip = function(msg, options){
+		options = options || {}
 		var map = {tip:"info", info:"info", error:"err", alert:"alert", question:"quest", success:"success"};
 		var dur = options.dur || (msg.length * 300);
 		var type = options.type || "info";
-		var tip = new dlg(null, {
+		var tip = new dlg(null, $.extend({
 			content: "<i class='ico'></i><span class='content'>"+msg+"</span>",
 			showHeader:false,
 			showFooter:false,
 			mixClass:"msg "+(map[type]?map[type]:"info"),
 			width: 500,
-			dismissOnBlur:true
-		});
-		setTimeout(function(){tip._dismiss();}, dur);
+			dismissOnBlur:true,
+			resize:false
+		},options));
+		if(dur>0) setTimeout(function(){tip._dismiss();}, dur);
+		return tip;
 	}
-
 })(window, window.jQuery);

@@ -228,15 +228,21 @@ body.dlg-mdl-dom{
 	font-size: @font-size;
 	line-height: @ln-height;
 	.dlg-msg{
-		padding: floor(@font-size * 1.2);
+		position: relative;
+		padding: floor(@font-size * 1.7) floor(@font-size * 1.2) floor(@font-size * 1.2) (floor(@font-size * 2.2)+@ln-height * 2);
+		min-height: ceil(@ln-height*2 - @font-size*0.5);
 		>.ico{
-			display: inline-block;
+			display: block;
+			position: absolute;
+			left: floor(@font-size * 1.2);
+			top: floor(@font-size * 1.2);
+			box-sizing: border-box;
 			padding-top: ceil(@ln-height * 0.08);
-			height: @ln-height + floor(@ln-height * 0.92);
+			height: @ln-height * 2;
 			width: @ln-height * 2;
 			font-size: @font-size * 2;
 			line-height: @ln-height * 2;
-			margin-right: @font-size;
+			text-align: center;
 		}
 		>.content{
 			display: inline-block;

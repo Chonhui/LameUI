@@ -208,6 +208,7 @@
 			this.reload();
 		},
 		gotoPage:function(page){
+			page=(page*1)||0;
 			if(page==0) page+=1;
 			var x = Math.floor(this.data.total / this.options.pageSize) + (this.data.total % this.options.pageSize>0?1:0);
 			if(page>x) page = x;
