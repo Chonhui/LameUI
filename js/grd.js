@@ -1,27 +1,17 @@
 //grd.js
 ;(function(){
-	var cachedScrollbarWidth;
+	var SW;//CachedScrollBarWidth
 	function scrollbarWidth() {
-		if ( cachedScrollbarWidth !== undefined ) {
-			return cachedScrollbarWidth;
-		}
+		if ( SW !== undefined ) return SW;
 		var w1, w2,
-			div = $( "<div style='display:block;position:absolute;width:50px;height:50px;overflow:hidden;'><div style='height:100px;width:auto;'></div></div>" ),
-			innerDiv = div.children()[0];
-
+			div = $( "<div style='display:block;position:absolute;width:50px;height:50px;overflow:hidden'><div style='height:100px;width:auto'></div></div>" ),
+			inr = div.children()[0];
 		$( "body" ).append( div );
-		w1 = innerDiv.offsetWidth;
+		w1 = inr.offsetWidth;
 		div.css( "overflow", "scroll" );
-
-		w2 = innerDiv.offsetWidth;
-
-		if ( w1 === w2 ) {
-			w2 = div[0].clientWidth;
-		}
-
+		w2 = inr.offsetWidth === w1 ? div[0].clientWidth : inr.offsetWidth;
 		div.remove();
-
-		return (cachedScrollbarWidth = w1 - w2);
+		return (SW = w1 - w2);
 	};
 	$(scrollbarWidth);
 	var gSeq = 0;
@@ -48,6 +38,7 @@
 		showHeader: true,
 		showPager: true,
 		idField: "",
+		queryParam: {},
 		loader: function(param, suc, err) {
 			var opts = this.options;
 			if (!opts.url) return false;
@@ -123,7 +114,7 @@
 				$.dlg({title:"Error", content:$("<div>").text(data.msg||data)})
 				echo(arguments);
 			}
-			this.options.loader.call(this, $.extend({sortField: this.sort, order:this.sortOrder},{}), _bind(function(data){
+			this.options.loader.call(this, $.extend({sortField: this.sort, order:this.sortOrder},this.queryParam), _bind(function(data){
 				data = $.isArray(data)? {total:data.length, pageSize:data.length, rows:data} : data;
 				if(!data.rows) return err(data);
 				this.data = data;
@@ -208,7 +199,6 @@
 			this.reload();
 		},
 		gotoPage:function(page){
-			page=(page*1)||0;
 			if(page==0) page+=1;
 			var x = Math.floor(this.data.total / this.options.pageSize) + (this.data.total % this.options.pageSize>0?1:0);
 			if(page>x) page = x;
@@ -227,7 +217,7 @@
 			return this.data;
 		},
 		getQueryParam:function(){
-			return {};
+			return this.queryParam;
 		},
 		getSortField:function(){
 			return this.sort;
@@ -240,6 +230,7 @@
 		},
 		_create:function(elem, opts){
 			this.options = $.extend({}, p.defaultOptions, opts);
+			this.queryParam = opts.queryParam;
 			this.seq = gSeq++;
 			var pnl = this[''] = {};
 
@@ -247,7 +238,7 @@
 				return $(tagContent).addClass(p.csss[className]).appendTo(parent);
 			}
 
-			var d = "<div>", a = "<a>";
+			var d = "<div>", a = "<a href='script:void(0)'></a>";
 			pnl.$appendTo = $(this.options.appendTo);
 			pnl.$wrap = makeTag(d, "wrap", pnl.$appendTo).attr("id", "grd-id-" + this.seq);
 			pnl.$styleTag = $("<style>").appendTo(pnl.$wrap);
@@ -264,12 +255,13 @@
 			var pgrs = pnl.pager = {};
 			var b = makeTag(d, "pagerButtons", pnl.$pager);
 			pgrs.$infos = makeTag(d, "pagerDetail", pnl.$pager);
-			pgrs.$first = makeTag(a, "firstPageButton", b).attr("title",p.txts["firstPage"]);
-			pgrs.$prev = makeTag(a, "prevPageButton", b).attr("title",p.txts["prevPage"]);
+			var ico = "<i class='ico'></i>";
+			pgrs.$first = makeTag(a, "firstPageButton", b).attr("title",p.txts["firstPage"]).html(ico);
+			pgrs.$prev = makeTag(a, "prevPageButton", b).attr("title",p.txts["prevPage"]).html(ico);
 			pgrs.$pageNum = makeTag("<input type='text' size='3' />", "pageNumberField", b);
 			pgrs.$jump = makeTag(a, "gotoPageButton", b).attr("title",p.txts["gotoPage"]).text(p.txts["gotoPage"]);
-			pgrs.$next = makeTag(a, "nextPageButton", b).attr("title",p.txts["nextPage"]);
-			pgrs.$last = makeTag(a, "lastPageButton", b).attr("title",p.txts["lastPage"]);
+			pgrs.$next = makeTag(a, "nextPageButton", b).attr("title",p.txts["nextPage"]).html(ico);
+			pgrs.$last = makeTag(a, "lastPageButton", b).attr("title",p.txts["lastPage"]).html(ico);
 
 			this.sort = this.sortOrder = ",";
 			pnl.$body2.on("scroll", _bind(p._scroll, this)).on("click","tr[data-index]",_bind(function(e){

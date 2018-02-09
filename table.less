@@ -27,23 +27,23 @@
 	&.nowrap td > div{white-space: nowrap;}
 
 	tr{
-		&.alert, &.clr-ylw{
+		&.warning, &.clr-ylw{
 			background: lighten(@yellow, 32%);
 			color:darken(@yellow,22%);
 		}
-		&.error &.clr-red{
+		&.error, &.clr-red{
 			background: lighten(@red, 42%);
 			color:darken(@red,12%);
 		}
-		&.success &.clr-grn{
+		&.success, &.clr-grn{
 			background: lighten(@green, 42%);
 			color:darken(@green,12%);
 		}
-		&.question &.clr-blu{
+		&.question, &.clr-blu{
 			background: lighten(@blue, 42%);
 			color:darken(@blue,12%);
 		}
-		&.info &.clr-cyn{
+		&.info, &.clr-cyn{
 			background: lighten(@cyan, 32%);
 			color:darken(@cyan,12%);
 		}
@@ -185,17 +185,18 @@
 		border-top:1px solid @tbl-bdy-brd-clr;
 		border-bottom: 1px solid @tbl-bdy-brd-clr;
 
-		.grd-fst:before{content:'\e610';}
-		.grd-lst:before{content:'\e613';}
-		.grd-pre:before{content:'\e611';}
-		.grd-nxt:before{content:'\e612';}
+		.grd-fst .ico:before{content:'\e610';}
+		.grd-lst .ico:before{content:'\e613';}
+		.grd-pre .ico:before{content:'\e611';}
+		.grd-nxt .ico:before{content:'\e612';}
 
 		.grd-fst, .grd-lst, .grd-pre, .grd-nxt{
 			display: inline-block;
 			font-size: @font-size;
 			line-height: @ln-height;
 			padding:@blk-padding-v;
-			width: @blk-size - @blk-padding-h * 2;
+			height: @blk-padding-v * 2 + @ln-height;
+			width: @blk-size;
 			text-align: center;
 		}
 

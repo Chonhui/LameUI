@@ -161,27 +161,30 @@
 			return attrs;
 		},
 		open:function(){
-			this.options.dismissOnBlur = !this.options.modal && this.options.dismissOnBlur;
+			//this.options.dismissOnBlur = !this.options.modal && this.options.dismissOnBlur;
 			var that = this;
 			var base = this.$base = this._appendTo();
 			var appendToAttrs = this._getParentAttrs();
+			var dismissWrap;
 			appendToAttrs.dlgCount++;
 			if(this.options.modal){
 				if(appendToAttrs.modalCount==0) base.addClass(proto.csss.modalBody);
 				this.wrap = $("<div>").addClass(proto.csss.wrap);
-				$("<div>").addClass(proto.csss.modalHelper).appendTo(this.wrap);
+				dismissWrap = $("<div>").addClass(proto.csss.modalHelper).appendTo(this.wrap);
 				this.wrap.appendTo(base);
 				this.$win_parent = this.wrap;
 				appendToAttrs.modalCount++;
 			}else if(this.options.dismissOnBlur){
-				this.wrap = $("<div>").addClass(proto.csss.wrap);
+				this.wrap = dismissWrap = $("<div>").addClass(proto.csss.wrap);
 				this.wrap.appendTo(base);
 				this.$win_parent = this.wrap;
 			}else{
 				if(this.wrap) this.$win_parent = this.wrap.appendTo(base);
 				else this.$win_parent = base;
 			}
-			if(this.options.dismissOnBlur) this.wrap.click(function(e){if(e.target == that.wrap[0]) that._dismiss();});
+			this.wrap.click(function(e){
+				that.options.dismissOnBlur && e.target == dismissWrap[0] && that._dismiss();
+			});
 			this.$win.appendTo(this.$win_parent);
 			if(this.options.fullScreen){
 				this.$win.addClass(proto.csss.fullScreen);
